@@ -4,5 +4,5 @@ tensorboard==2.13.0
 tensorboard-data-server==0.7.1
 tensorflow==2.13.0rc2
 tensorflow-estimator==2.13.0
-tensorflow-macos==2.13.0rc2
+tensorflow-macos==2.13.0
 streamlit==1.24.0
