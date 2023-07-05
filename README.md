@@ -33,13 +33,13 @@ To run the Drowsiness Detection Model project, you need to have the following so
 
 When the model detects closed eyes, it generates an alert message. Here is an example output:
 
-![Eyes Closed](images/eyes_closed.jpg)
+![Eyes Closed](images/closed_eyes.png)
 
 ### Eyes Open
 
 When the model detects open eyes, it does not generate an alert. Here is an example output:
 
-![Eyes Open](images/eyes_open.jpg)
+![Eyes Open](images/open_eyes.png)
 
 ## Customization
 
