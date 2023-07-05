@@ -3,6 +3,7 @@ import numpy as np
 import streamlit as st
 from pygame import mixer
 from tensorflow.keras.models import load_model
+
 # Load the trained model
 model = load_model('Model.h5')
 
@@ -19,6 +20,8 @@ cap = cv2.VideoCapture(0)
 
 # Initialize variables
 Score = 0
+eyes_closed = False
+alert_displayed = False
 
 # Streamlit app
 st.title('Drowsiness Detection App')
@@ -64,9 +67,11 @@ if start_button:
                 cv2.putText(frame, 'Score: ' + str(Score), (100, height-20), fontFace=cv2.FONT_HERSHEY_COMPLEX_SMALL, fontScale=1, color=(255, 255, 255),
                             thickness=1, lineType=cv2.LINE_AA)
                 Score += 1
-                if Score > 15:
+                if Score > 15 and not alert_displayed:
                     try:
                         sound.play()
+                        st.warning("Eyes are closed!")
+                        alert_displayed = True
                     except:
                         pass
                 
@@ -78,6 +83,9 @@ if start_button:
                 Score -= 1
                 if Score < 0:
                     Score = 0
+                if alert_displayed:
+                    st.warning("")
+                    alert_displayed = False
         
         # Update the output frame with the processed frame
         output_frame.image(frame, channels='BGR')
