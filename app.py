@@ -1,7 +1,7 @@
 import cv2
 import numpy as np
 import streamlit as st
-from pygame import mixer
+# from pygame import mixer
 from tensorflow.keras.models import load_model
 
 # Load the trained model
@@ -12,8 +12,8 @@ face_cascade = cv2.CascadeClassifier('haarcascade/haarcascade_frontalface_defaul
 eye_cascade = cv2.CascadeClassifier('haarcascade/haarcascade_eye.xml')
 
 # Initialize audio mixer
-mixer.init()
-sound = mixer.Sound('alarm.mp3')
+# mixer.init()
+# sound = mixer.Sound('alarm.mp3')
 
 # Set up video capture
 cap = cv2.VideoCapture(0)
@@ -69,7 +69,7 @@ if start_button:
                 Score += 1
                 if Score > 15 and not alert_displayed:
                     try:
-                        sound.play()
+                        # sound.play()
                         st.warning("Eyes are closed!")
                         alert_displayed = True
                     except:
